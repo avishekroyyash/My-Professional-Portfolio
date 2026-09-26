@@ -200,7 +200,7 @@ useEffect(() => {
             <motion.div initial={{ opacity: 0, rotate: 5 }} animate={{ opacity: 1, rotate: -4 }} transition={{ duration: 0.8, delay: 0.6 }} className="absolute left-1/2 top-1/2 h-92.5 w-67.5 -translate-x-1/2 -translate-y-1/2 rounded-4xl border border-emerald-600/40 sm:h-122.5 sm:w-85 dark:border-emerald-400/50" />
 
             {/* Profile Image */}
-           <motion.div initial={{ opacity: 0, y: 25, scale: 0.97 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.8, delay: 0.35, ease: "easeOut" }} className="relative z-10 mt-8 w-72.5 sm:w-87.5 md:w-96  lg:w-118">
+           <motion.div initial={{ opacity: 0, y: 25, scale: 0.97 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.8, delay: 0.35, ease: "easeOut" }} className="relative z-10 mt-8 w-72.5 sm:w-87.5 md:w-96  lg:w-106">
   <Image src={pic} alt="Avishek Roy Yash" width={800} height={700} priority className="relative z-10 h-auto scale-[1.37] object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.20)] dark:drop-shadow-[0_20px_50px_rgba(0,0,0,0.60)]" />
 </motion.div>
 

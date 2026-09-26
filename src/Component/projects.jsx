@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image";
@@ -18,89 +19,91 @@ const projects = [
       "A second-hand e-commerce marketplace where users can browse, buy and sell used products.",
     image: "/images/projects/rebazzar.png",
     technologies: [
+      "Tailwind CSS",
+      "Hero UI",
+      "React",
       "Next.js",
       "Node.js",
       "Express.js",
       "MongoDB",
+      "Stripe",
+      "Better auth"
     ],
-    github: "https://github.com/avishekroyyash",
-    live: "#",
+    github: "https://github.com/avishekroyyash/reseller-frontend",
+    live: "https://reseller-frontend-silk.vercel.app",
   },
 
   {
-    title: "MovieExplorer",
-    category: "Frontend Application",
+    title: "SportNest",
+    category: "Sports Management System",
     description:
-      "A movie exploration application where users can search and browse shows using the TVMaze API.",
+      "Centralized platform managing teams, players, and sports activities, with authentication and role-based access control.",
     image: "/images/projects/movie-explorer.png",
     technologies: [
-      "React",
-      "React Router",
       "Tailwind CSS",
-      "API",
+      "Daisy UI",
+      "React",
+      "Next.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Better auth"
     ],
-    github: "https://github.com/avishekroyyash",
-    live: "#",
+    github: "https://github.com/avishekroyyash/sport-frontend",
+    live: "https://sport-frontend-gray.vercel.app",
   },
 
   {
-    title: "Project Three",
-    category: "Web Application",
+    title: "Animal Marketplace",
+    category: "Web Frontend Application",
     description:
-      "A responsive web application designed to provide a clean user experience with practical functionality.",
+      "Browse, List & Sell Platform Full-stack marketplace with detailed listings, category-based filtering, search, and account management.",
     image: "/images/projects/project-three.png",
     technologies: [
       "React",
-      "JavaScript",
+      "Daisy UI",
+     "Next.js",
       "Tailwind CSS",
+      "React Router",
+      "React Hook form",
+      "Better auth"
     ],
-    github: "https://github.com/avishekroyyash",
-    live: "#",
+    github: "https://github.com/avishekroyyash/Animal",
+    live: "https://animal-mu-gold.vercel.app",
   },
 
-  {
-    title: "Project Four",
-    category: "Full Stack Application",
-    description:
-      "A full-stack application focused on API integration, database operations and modern web development.",
-    image: "/images/projects/project-four.png",
-    technologies: [
-      "Next.js",
-      "Node.js",
-      "MongoDB",
-    ],
-    github: "https://github.com/avishekroyyash",
-    live: "#",
-  },
+  // {
+  //   title: "Project Four",
+  //   category: "Full Stack Application",
+  //   description:
+  //     "A full-stack application focused on API integration, database operations and modern web development.",
+  //   image: "/images/projects/project-four.png",
+  //   technologies: [
+  //     "Next.js",
+  //     "Node.js",
+  //     "MongoDB",
+  //   ],
+  //   github: "https://github.com/avishekroyyash",
+  //   live: "#",
+  // },
 
-  {
-    title: "Project Five",
-    category: "Web Application",
-    description:
-      "A practical web application built with modern frontend technologies and responsive design.",
-    image: "/images/projects/project-five.png",
-    technologies: [
-      "React",
-      "JavaScript",
-      "Tailwind CSS",
-    ],
-    github: "https://github.com/avishekroyyash",
-    live: "#",
-  },
+  // {
+  //   title: "Project Five",
+  //   category: "Web Application",
+  //   description:
+  //     "A practical web application built with modern frontend technologies and responsive design.",
+  //   image: "/images/projects/project-five.png",
+  //   technologies: [
+  //     "React",
+  //     "JavaScript",
+  //     "Tailwind CSS",
+  //   ],
+  //   github: "https://github.com/avishekroyyash",
+  //   live: "#",
+  // },
 ];
 
 const projectsPerPage = 3;
-
-const cardAnimation = {
-  hidden: {
-    opacity: 0,
-    y: 30,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-  },
-};
 
 export default function ProjectsPage() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -117,13 +120,17 @@ export default function ProjectsPage() {
     startIndex + projectsPerPage
   );
 
+  /*
+   * IMPORTANT:
+   * No window.scrollTo() here.
+   *
+   * Previously the page was jumping to the top because
+   * window.scrollTo({ top: 0 }) was being called.
+   *
+   * Now only the projects change.
+   */
   const changePage = (page) => {
     setCurrentPage(page);
-
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
   };
 
   return (
@@ -179,6 +186,7 @@ export default function ProjectsPage() {
             }}
             className="max-w-3xl"
           >
+
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-600 dark:text-emerald-400">
               My Projects
             </p>
@@ -195,6 +203,7 @@ export default function ProjectsPage() {
               to solve practical problems and build real-world
               applications.
             </p>
+
           </motion.div>
 
         </div>
@@ -212,18 +221,15 @@ export default function ProjectsPage() {
             key={currentPage}
             initial={{
               opacity: 0,
-              x: 20,
             }}
             animate={{
               opacity: 1,
-              x: 0,
             }}
             exit={{
               opacity: 0,
-              x: -20,
             }}
             transition={{
-              duration: 0.35,
+              duration: 0.3,
             }}
             className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
           >
@@ -234,15 +240,15 @@ export default function ProjectsPage() {
                 key={project.title}
                 initial={{
                   opacity: 0,
-                  y: 25,
+                  y: 20,
                 }}
                 animate={{
                   opacity: 1,
                   y: 0,
                 }}
                 transition={{
-                  duration: 0.5,
-                  delay: index * 0.1,
+                  duration: 0.4,
+                  delay: index * 0.08,
                 }}
                 whileHover={{
                   y: -7,
@@ -254,7 +260,7 @@ export default function ProjectsPage() {
                     PROJECT IMAGE
                 ========================== */}
 
-                <div className="relative aspect-16/10 overflow-hidden bg-emerald-950/10">
+                <div className="relative aspect-[16/10] overflow-hidden bg-emerald-950/10">
 
                   <Image
                     src={project.image}
@@ -352,12 +358,14 @@ export default function ProjectsPage() {
             {/* Previous */}
 
             <button
+              type="button"
               onClick={() =>
                 changePage(
                   Math.max(currentPage - 1, 1)
                 )
               }
               disabled={currentPage === 1}
+              aria-label="Previous page"
               className="flex h-10 w-10 items-center justify-center rounded-lg border border-emerald-600/20 text-gray-600 transition hover:border-emerald-500 hover:text-emerald-600 disabled:cursor-not-allowed disabled:opacity-40 dark:border-emerald-400/15 dark:text-gray-400 dark:hover:border-emerald-400 dark:hover:text-emerald-400"
             >
               <FiChevronLeft />
@@ -366,13 +374,22 @@ export default function ProjectsPage() {
             {/* Page Numbers */}
 
             {Array.from(
-              { length: totalPages },
+              {
+                length: totalPages,
+              },
               (_, index) => index + 1
             ).map((page) => (
 
               <button
+                type="button"
                 key={page}
                 onClick={() => changePage(page)}
+                aria-label={`Go to page ${page}`}
+                aria-current={
+                  currentPage === page
+                    ? "page"
+                    : undefined
+                }
                 className={`flex h-10 w-10 items-center justify-center rounded-lg text-sm font-semibold transition-all ${
                   currentPage === page
                     ? "bg-emerald-600 text-white shadow-lg shadow-emerald-600/20 dark:bg-emerald-500 dark:text-[#02100C]"
@@ -387,6 +404,7 @@ export default function ProjectsPage() {
             {/* Next */}
 
             <button
+              type="button"
               onClick={() =>
                 changePage(
                   Math.min(
@@ -396,6 +414,7 @@ export default function ProjectsPage() {
                 )
               }
               disabled={currentPage === totalPages}
+              aria-label="Next page"
               className="flex h-10 w-10 items-center justify-center rounded-lg border border-emerald-600/20 text-gray-600 transition hover:border-emerald-500 hover:text-emerald-600 disabled:cursor-not-allowed disabled:opacity-40 dark:border-emerald-400/15 dark:text-gray-400 dark:hover:border-emerald-400 dark:hover:text-emerald-400"
             >
               <FiChevronRight />
@@ -458,3 +477,4 @@ export default function ProjectsPage() {
     </main>
   );
 }
+
