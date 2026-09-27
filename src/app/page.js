@@ -1,14 +1,16 @@
 import Hero from "@/Component/Hero";
 import Navbar from "@/Component/Navber";
 import ProjectsPage from "@/Component/projects";
-import ExperiencePage from "./Page/experience/page";
-import ServicesPage from "./Page/services/page";
+
+
 import EducationPage from "./Page/education/page";
 import AchievementsPage from "./Page/achivements/page";
 import ContactPage from "./Page/contact/page";
 import Footer from "@/Component/footer";
 import AboutPage from "@/Component/AboutMe";
 import SkillsPage from "@/Component/skills";
+import ExperiencePage from "@/Component/Experience";
+import ServicesPage from "@/Component/Service";
 
 
 

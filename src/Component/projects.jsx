@@ -8,16 +8,21 @@ import {
   FiExternalLink,
   FiChevronLeft,
   FiChevronRight,
+  FiArrowUpRight,
 } from "react-icons/fi";
 import { useState } from "react";
+
+import ban1 from "../../public/images/profile/banner.png";
+import ban2 from "../../public/images/profile/banner1.jpg";
+import ban3 from "../../public/images/profile/banner2.jpg";
 
 const projects = [
   {
     title: "ReBazzar",
-    category: "Full Stack Marketplace",
+    category: "Full-Stack Marketplace",
     description:
-      "A second-hand e-commerce marketplace where users can browse, buy and sell used products.",
-    image: "/images/projects/rebazzar.png",
+      "A second-hand e-commerce marketplace where users can browse, buy, and sell used products through a modern marketplace experience.",
+    image: ban1,
     technologies: [
       "Tailwind CSS",
       "Hero UI",
@@ -27,7 +32,7 @@ const projects = [
       "Express.js",
       "MongoDB",
       "Stripe",
-      "Better auth"
+      "Better Auth",
     ],
     github: "https://github.com/avishekroyyash/reseller-frontend",
     live: "https://reseller-frontend-silk.vercel.app",
@@ -35,19 +40,19 @@ const projects = [
 
   {
     title: "SportNest",
-    category: "Sports Management System",
+    category: "Sports Management",
     description:
-      "Centralized platform managing teams, players, and sports activities, with authentication and role-based access control.",
-    image: "/images/projects/movie-explorer.png",
+      "A centralized sports management platform for managing teams, players, and sports activities with authentication and role-based access.",
+    image: ban2,
     technologies: [
       "Tailwind CSS",
-      "Daisy UI",
+      "DaisyUI",
       "React",
       "Next.js",
       "Node.js",
       "Express.js",
       "MongoDB",
-      "Better auth"
+      "Better Auth",
     ],
     github: "https://github.com/avishekroyyash/sport-frontend",
     live: "https://sport-frontend-gray.vercel.app",
@@ -55,55 +60,49 @@ const projects = [
 
   {
     title: "Animal Marketplace",
-    category: "Web Frontend Application",
+    category: "Marketplace Application",
     description:
-      "Browse, List & Sell Platform Full-stack marketplace with detailed listings, category-based filtering, search, and account management.",
-    image: "/images/projects/project-three.png",
+      "A marketplace platform for browsing, listing, and selling animals with detailed listings, category-based filtering, search, and account management.",
+    image: ban3,
     technologies: [
       "React",
-      "Daisy UI",
-     "Next.js",
+      "DaisyUI",
+      "Next.js",
       "Tailwind CSS",
       "React Router",
-      "React Hook form",
-      "Better auth"
+      "React Hook Form",
+      "Better Auth",
     ],
     github: "https://github.com/avishekroyyash/Animal",
     live: "https://animal-mu-gold.vercel.app",
   },
-
-  // {
-  //   title: "Project Four",
-  //   category: "Full Stack Application",
-  //   description:
-  //     "A full-stack application focused on API integration, database operations and modern web development.",
-  //   image: "/images/projects/project-four.png",
-  //   technologies: [
-  //     "Next.js",
-  //     "Node.js",
-  //     "MongoDB",
-  //   ],
-  //   github: "https://github.com/avishekroyyash",
-  //   live: "#",
-  // },
-
-  // {
-  //   title: "Project Five",
-  //   category: "Web Application",
-  //   description:
-  //     "A practical web application built with modern frontend technologies and responsive design.",
-  //   image: "/images/projects/project-five.png",
-  //   technologies: [
-  //     "React",
-  //     "JavaScript",
-  //     "Tailwind CSS",
-  //   ],
-  //   github: "https://github.com/avishekroyyash",
-  //   live: "#",
-  // },
 ];
 
 const projectsPerPage = 3;
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: {
+    opacity: 0,
+    y: 35,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.65,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
 
 export default function ProjectsPage() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -120,15 +119,6 @@ export default function ProjectsPage() {
     startIndex + projectsPerPage
   );
 
-  /*
-   * IMPORTANT:
-   * No window.scrollTo() here.
-   *
-   * Previously the page was jumping to the top because
-   * window.scrollTo({ top: 0 }) was being called.
-   *
-   * Now only the projects change.
-   */
   const changePage = (page) => {
     setCurrentPage(page);
   };
@@ -137,76 +127,150 @@ export default function ProjectsPage() {
     <main className="min-h-screen overflow-hidden bg-[#EFFFF7] text-gray-900 transition-colors duration-300 dark:bg-[#020B0A] dark:text-white">
 
       {/* =====================================================
-          HEADER
+          HERO
       ====================================================== */}
 
-      <section className="relative border-b border-emerald-600/10 dark:border-emerald-400/10">
+      <section className="relative overflow-hidden border-b border-emerald-600/10 dark:border-emerald-400/10">
 
-        {/* Background glow */}
+        {/* Animated background glow */}
 
         <motion.div
+          initial={{
+            opacity: 0,
+            scale: 0.8,
+          }}
           animate={{
-            x: [0, 30, 0],
+            opacity: 1,
+            scale: 1,
+            x: [0, 25, 0],
             y: [0, -20, 0],
           }}
           transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
+            opacity: {
+              duration: 1,
+            },
+            scale: {
+              duration: 1.2,
+              ease: "easeOut",
+            },
+            x: {
+              duration: 12,
+              repeat: Infinity,
+              ease: "easeInOut",
+            },
+            y: {
+              duration: 10,
+              repeat: Infinity,
+              ease: "easeInOut",
+            },
           }}
-          className="pointer-events-none absolute -left-32 -top-32 h-80 w-80 rounded-full bg-emerald-400/15 blur-3xl dark:bg-emerald-500/10"
+          className="pointer-events-none absolute -left-40 -top-40 h-96 w-96 rounded-full bg-emerald-400/15 blur-3xl dark:bg-emerald-500/10"
         />
 
         <motion.div
+          initial={{
+            opacity: 0,
+            scale: 0.8,
+          }}
           animate={{
-            x: [0, -30, 0],
+            opacity: 1,
+            scale: 1,
+            x: [0, -25, 0],
             y: [0, 20, 0],
           }}
           transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "easeInOut",
+            opacity: {
+              duration: 1,
+              delay: 0.2,
+            },
+            scale: {
+              duration: 1.2,
+              delay: 0.2,
+              ease: "easeOut",
+            },
+            x: {
+              duration: 14,
+              repeat: Infinity,
+              ease: "easeInOut",
+            },
+            y: {
+              duration: 11,
+              repeat: Infinity,
+              ease: "easeInOut",
+            },
           }}
-          className="pointer-events-none absolute -right-32 top-10 h-80 w-80 rounded-full bg-green-400/15 blur-3xl dark:bg-green-500/10"
+          className="pointer-events-none absolute -right-40 top-10 h-96 w-96 rounded-full bg-green-400/10 blur-3xl dark:bg-green-500/10"
         />
 
-        <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10 lg:py-24">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+          className="relative mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10 lg:py-28"
+        >
 
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 25,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              duration: 0.7,
-            }}
-            className="max-w-3xl"
-          >
+          <div className="max-w-3xl">
 
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-600 dark:text-emerald-400">
-              My Projects
-            </p>
+            <motion.div
+              variants={cardVariants}
+              className="inline-flex items-center gap-2 rounded-full border border-emerald-600/15 bg-emerald-500/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-700 dark:border-emerald-400/10 dark:bg-emerald-400/5 dark:text-emerald-400"
+            >
+              <motion.span
+                animate={{
+                  scale: [1, 1.25, 1],
+                  opacity: [1, 0.6, 1],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="h-1.5 w-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400"
+              />
 
-            <h1 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
+              Selected Projects
+            </motion.div>
+
+            <motion.h1
+              variants={cardVariants}
+              className="mt-6 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
+            >
               Things I&apos;ve{" "}
               <span className="text-emerald-600 dark:text-emerald-400">
                 built.
               </span>
-            </h1>
+            </motion.h1>
 
-            <p className="mt-5 max-w-2xl text-base leading-7 text-gray-600 dark:text-gray-400">
-              A selection of projects where I apply my skills
-              to solve practical problems and build real-world
-              applications.
-            </p>
+            <motion.p
+              variants={cardVariants}
+              className="mt-6 max-w-2xl text-base leading-8 text-gray-600 dark:text-gray-400 sm:text-lg"
+            >
+              A selection of practical projects where I apply modern
+              technologies to build responsive, scalable, and user-focused
+              web applications.
+            </motion.p>
 
-          </motion.div>
+            <motion.div
+              variants={cardVariants}
+              className="mt-8 flex flex-wrap gap-3"
+            >
+              {[
+                "Full Stack Development",
+                "Modern Web Applications",
+                "Real-World Projects",
+              ].map((item) => (
+                <span
+                  key={item}
+                  className="rounded-lg border border-emerald-600/10 bg-white/50 px-3 py-2 text-xs font-medium text-gray-600 dark:border-emerald-400/10 dark:bg-white/[0.02] dark:text-gray-400"
+                >
+                  {item}
+                </span>
+              ))}
+            </motion.div>
 
-        </div>
+          </div>
+
+        </motion.div>
       </section>
 
       {/* =====================================================
@@ -219,122 +283,155 @@ export default function ProjectsPage() {
 
           <motion.div
             key={currentPage}
-            initial={{
-              opacity: 0,
-            }}
-            animate={{
-              opacity: 1,
-            }}
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
             exit={{
               opacity: 0,
+              y: -10,
+              transition: {
+                duration: 0.2,
+              },
             }}
-            transition={{
-              duration: 0.3,
-            }}
-            className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+            className="grid gap-7 md:grid-cols-2 lg:grid-cols-3"
           >
 
-            {currentProjects.map((project, index) => (
+            {currentProjects.map((project) => (
 
               <motion.article
                 key={project.title}
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
+                variants={cardVariants}
+                whileHover={{
+                  y: -6,
                 }}
                 transition={{
-                  duration: 0.4,
-                  delay: index * 0.08,
+                  duration: 0.25,
+                  ease: "easeOut",
                 }}
-                whileHover={{
-                  y: -7,
-                }}
-                className="group overflow-hidden rounded-2xl border border-emerald-600/15 bg-white/70 shadow-sm transition-all duration-300 hover:border-emerald-500/40 hover:shadow-xl hover:shadow-emerald-900/5 dark:border-emerald-400/10 dark:bg-[#061511]/70 dark:hover:border-emerald-400/30 dark:hover:shadow-none"
+                className="group overflow-hidden rounded-2xl border border-emerald-600/10 bg-white/70 shadow-sm backdrop-blur-sm transition-all duration-300 hover:border-emerald-500/30 hover:shadow-xl hover:shadow-emerald-900/5 dark:border-emerald-400/10 dark:bg-[#061511]/70 dark:hover:border-emerald-400/20 dark:hover:shadow-none"
               >
 
-                {/* =========================
-                    PROJECT IMAGE
-                ========================== */}
+                {/* =================================================
+                    IMAGE
+                ================================================== */}
 
                 <div className="relative aspect-[16/10] overflow-hidden bg-emerald-950/10">
 
                   <Image
                     src={project.image}
-                    alt={project.title}
+                    alt={`${project.title} project preview`}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
 
-                  <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
+                  {/* Image overlay */}
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/5 to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-90" />
 
                   {/* Category */}
 
                   <div className="absolute left-4 top-4">
-                    <span className="rounded-full border border-white/20 bg-black/30 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-md">
+                    <span className="rounded-full border border-white/20 bg-black/30 px-3 py-1.5 text-xs font-medium text-white shadow-sm backdrop-blur-md">
                       {project.category}
                     </span>
                   </div>
 
+                  {/* Preview indicator */}
+
+                  <motion.div
+                    initial={{
+                      opacity: 0,
+                      x: 10,
+                    }}
+                    whileHover={{
+                      opacity: 1,
+                      x: 0,
+                    }}
+                    className="absolute bottom-4 right-4 hidden rounded-full border border-white/20 bg-black/30 p-2.5 text-white backdrop-blur-md md:block"
+                  >
+                    <FiArrowUpRight size={16} />
+                  </motion.div>
+
                 </div>
 
-                {/* =========================
+                {/* =================================================
                     CONTENT
-                ========================== */}
+                ================================================== */}
 
-                <div className="p-5">
+                <div className="p-6">
 
-                  <h2 className="text-xl font-bold">
-                    {project.title}
-                  </h2>
+                  <div className="flex items-start justify-between gap-4">
 
-                  <p className="mt-3 line-clamp-3 text-sm leading-6 text-gray-600 dark:text-gray-400">
+                    <div>
+                      <h2 className="text-xl font-bold tracking-tight">
+                        {project.title}
+                      </h2>
+
+                      <div className="mt-2 h-0.5 w-8 rounded-full bg-emerald-500 transition-all duration-300 group-hover:w-12" />
+                    </div>
+
+                  </div>
+
+                  <p className="mt-4 line-clamp-3 text-sm leading-7 text-gray-600 dark:text-gray-400">
                     {project.description}
                   </p>
 
                   {/* Technologies */}
 
-                  <div className="mt-4 flex flex-wrap gap-2">
+                  <div className="mt-5 flex flex-wrap gap-2">
 
-                    {project.technologies.map(
-                      (technology) => (
-                        <span
-                          key={technology}
-                          className="rounded-md border border-emerald-600/10 bg-emerald-500/5 px-2.5 py-1 text-xs font-medium text-gray-700 dark:border-emerald-400/10 dark:bg-emerald-400/5 dark:text-gray-300"
-                        >
-                          {technology}
-                        </span>
-                      )
-                    )}
+                    {project.technologies.map((technology) => (
+
+                      <motion.span
+                        key={technology}
+                        whileHover={{
+                          y: -2,
+                        }}
+                        className="rounded-md border border-emerald-600/10 bg-emerald-500/5 px-2.5 py-1 text-xs font-medium text-gray-700 transition-colors duration-200 hover:border-emerald-500/20 hover:bg-emerald-500/10 hover:text-emerald-700 dark:border-emerald-400/10 dark:bg-emerald-400/5 dark:text-gray-300 dark:hover:bg-emerald-400/10 dark:hover:text-emerald-300"
+                      >
+                        {technology}
+                      </motion.span>
+
+                    ))}
 
                   </div>
 
                   {/* Buttons */}
 
-                  <div className="mt-5 flex gap-2">
+                  <div className="mt-6 flex gap-2 border-t border-emerald-600/10 pt-5 dark:border-emerald-400/10">
 
-                    <a
+                    <motion.a
                       href={project.github}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-2 rounded-lg border border-emerald-600/20 px-3.5 py-2 text-sm font-semibold text-gray-700 transition hover:border-emerald-500 hover:text-emerald-600 dark:border-emerald-400/15 dark:text-gray-300 dark:hover:border-emerald-400 dark:hover:text-emerald-400"
+                      whileHover={{
+                        y: -2,
+                      }}
+                      whileTap={{
+                        scale: 0.97,
+                      }}
+                      className="inline-flex items-center gap-2 rounded-lg border border-emerald-600/15 px-3.5 py-2 text-sm font-semibold text-gray-700 transition-all duration-200 hover:border-emerald-500/40 hover:bg-emerald-500/5 hover:text-emerald-600 dark:border-emerald-400/15 dark:text-gray-300 dark:hover:border-emerald-400/30 dark:hover:bg-emerald-400/5 dark:hover:text-emerald-400"
                     >
-                      <FiGithub />
+                      <FiGithub size={16} />
                       GitHub
-                    </a>
+                    </motion.a>
 
-                    <a
+                    <motion.a
                       href={project.live}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-3.5 py-2 text-sm font-semibold text-white transition hover:bg-emerald-700 dark:bg-emerald-500 dark:text-[#02100C] dark:hover:bg-emerald-400"
+                      whileHover={{
+                        y: -2,
+                      }}
+                      whileTap={{
+                        scale: 0.97,
+                      }}
+                      className="inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-3.5 py-2 text-sm font-semibold text-white shadow-sm shadow-emerald-600/10 transition-all duration-200 hover:bg-emerald-700 dark:bg-emerald-500 dark:text-[#02100C] dark:hover:bg-emerald-400"
                     >
                       Live Demo
-                      <FiExternalLink />
-                    </a>
+                      <FiExternalLink size={15} />
+                    </motion.a>
 
                   </div>
 
@@ -353,12 +450,35 @@ export default function ProjectsPage() {
         ================================================== */}
 
         {totalPages > 1 && (
-          <div className="mt-12 flex items-center justify-center gap-2">
+
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: 15,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            viewport={{
+              once: true,
+            }}
+            transition={{
+              duration: 0.5,
+            }}
+            className="mt-14 flex items-center justify-center gap-2"
+          >
 
             {/* Previous */}
 
-            <button
+            <motion.button
               type="button"
+              whileHover={{
+                y: -2,
+              }}
+              whileTap={{
+                scale: 0.95,
+              }}
               onClick={() =>
                 changePage(
                   Math.max(currentPage - 1, 1)
@@ -366,12 +486,12 @@ export default function ProjectsPage() {
               }
               disabled={currentPage === 1}
               aria-label="Previous page"
-              className="flex h-10 w-10 items-center justify-center rounded-lg border border-emerald-600/20 text-gray-600 transition hover:border-emerald-500 hover:text-emerald-600 disabled:cursor-not-allowed disabled:opacity-40 dark:border-emerald-400/15 dark:text-gray-400 dark:hover:border-emerald-400 dark:hover:text-emerald-400"
+              className="flex h-10 w-10 items-center justify-center rounded-lg border border-emerald-600/20 text-gray-600 transition-all duration-200 hover:border-emerald-500 hover:bg-emerald-500/5 hover:text-emerald-600 disabled:cursor-not-allowed disabled:opacity-40 dark:border-emerald-400/15 dark:text-gray-400 dark:hover:border-emerald-400 dark:hover:text-emerald-400"
             >
               <FiChevronLeft />
-            </button>
+            </motion.button>
 
-            {/* Page Numbers */}
+            {/* Page numbers */}
 
             {Array.from(
               {
@@ -380,9 +500,15 @@ export default function ProjectsPage() {
               (_, index) => index + 1
             ).map((page) => (
 
-              <button
+              <motion.button
                 type="button"
                 key={page}
+                whileHover={{
+                  y: -2,
+                }}
+                whileTap={{
+                  scale: 0.95,
+                }}
                 onClick={() => changePage(page)}
                 aria-label={`Go to page ${page}`}
                 aria-current={
@@ -390,21 +516,27 @@ export default function ProjectsPage() {
                     ? "page"
                     : undefined
                 }
-                className={`flex h-10 w-10 items-center justify-center rounded-lg text-sm font-semibold transition-all ${
+                className={`flex h-10 w-10 items-center justify-center rounded-lg text-sm font-semibold transition-all duration-200 ${
                   currentPage === page
                     ? "bg-emerald-600 text-white shadow-lg shadow-emerald-600/20 dark:bg-emerald-500 dark:text-[#02100C]"
-                    : "border border-emerald-600/20 text-gray-600 hover:border-emerald-500 hover:text-emerald-600 dark:border-emerald-400/15 dark:text-gray-400 dark:hover:border-emerald-400 dark:hover:text-emerald-400"
+                    : "border border-emerald-600/20 text-gray-600 hover:border-emerald-500 hover:bg-emerald-500/5 hover:text-emerald-600 dark:border-emerald-400/15 dark:text-gray-400 dark:hover:border-emerald-400 dark:hover:text-emerald-400"
                 }`}
               >
                 {page}
-              </button>
+              </motion.button>
 
             ))}
 
             {/* Next */}
 
-            <button
+            <motion.button
               type="button"
+              whileHover={{
+                y: -2,
+              }}
+              whileTap={{
+                scale: 0.95,
+              }}
               onClick={() =>
                 changePage(
                   Math.min(
@@ -415,62 +547,14 @@ export default function ProjectsPage() {
               }
               disabled={currentPage === totalPages}
               aria-label="Next page"
-              className="flex h-10 w-10 items-center justify-center rounded-lg border border-emerald-600/20 text-gray-600 transition hover:border-emerald-500 hover:text-emerald-600 disabled:cursor-not-allowed disabled:opacity-40 dark:border-emerald-400/15 dark:text-gray-400 dark:hover:border-emerald-400 dark:hover:text-emerald-400"
+              className="flex h-10 w-10 items-center justify-center rounded-lg border border-emerald-600/20 text-gray-600 transition-all duration-200 hover:border-emerald-500 hover:bg-emerald-500/5 hover:text-emerald-600 disabled:cursor-not-allowed disabled:opacity-40 dark:border-emerald-400/15 dark:text-gray-400 dark:hover:border-emerald-400 dark:hover:text-emerald-400"
             >
               <FiChevronRight />
-            </button>
+            </motion.button>
 
-          </div>
+          </motion.div>
+
         )}
-
-      </section>
-
-      {/* =====================================================
-          GITHUB CTA
-      ====================================================== */}
-
-      <section className="px-5 pb-20 sm:px-8 lg:px-10 lg:pb-28">
-
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 25,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-            amount: 0.2,
-          }}
-          transition={{
-            duration: 0.6,
-          }}
-          className="mx-auto max-w-7xl rounded-2xl border border-emerald-600/15 bg-emerald-500/5 p-8 text-center dark:border-emerald-400/10 dark:bg-emerald-400/5"
-        >
-
-          <h2 className="text-2xl font-bold">
-            Want to see more?
-          </h2>
-
-          <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-gray-600 dark:text-gray-400">
-            Explore more of my projects, experiments and
-            development work on GitHub.
-          </p>
-
-          <a
-            href="https://github.com/avishekroyyash"
-            target="_blank"
-            rel="noreferrer"
-            className="mt-6 inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-5 py-3 font-semibold text-white transition hover:-translate-y-1 hover:bg-emerald-700 dark:bg-emerald-500 dark:text-[#02100C] dark:hover:bg-emerald-400"
-          >
-            <FiGithub />
-            Visit GitHub
-            <FiExternalLink />
-          </a>
-
-        </motion.div>
 
       </section>
 
