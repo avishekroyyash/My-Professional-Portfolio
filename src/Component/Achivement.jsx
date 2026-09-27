@@ -1,26 +1,25 @@
+
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
 import {
   FiAward,
   FiBookOpen,
   FiCode,
-  FiExternalLink,
   FiFileText,
-  FiGithub,
-  FiArrowUpRight,
+  FiGlobe,
+  FiLayers,
 } from "react-icons/fi";
 
 const achievements = [
   {
-    icon: FiCode,
-    title: "Competitive Programming",
-    organization: "Problem Solving & Programming",
-    year: "Ongoing",
+    icon: FiLayers,
+    title: "Full Stack Development",
+    organization: "Web Development & Personal Projects",
+    year: "2025 — Present",
     description:
-      "Continuously improving algorithmic thinking and problem-solving skills through programming practice and coding challenges.",
-    tags: ["C", "C++", "JavaScript", "Problem Solving"],
+      "Building full-stack web applications using modern frontend and backend technologies, with practical experience in authentication, APIs, databases, and responsive UI development.",
+    tags: ["React", "Next.js", "Node.js", "MongoDB"],
   },
   {
     icon: FiFileText,
@@ -40,6 +39,25 @@ const achievements = [
       "Pursuing a Bachelor's degree in Computer Science & Engineering while developing skills in software engineering, web development, and artificial intelligence.",
     tags: ["CSE", "Software Engineering", "AI/ML"],
   },
+  {
+    icon: FiGlobe,
+    title: "Digital Marketing",
+    organization: "E-Learning & Earning",
+    year: "2024 — Present",
+    description:
+      "Developing practical digital marketing skills with a focus on online advertising, search engine optimization, social media management, and audience growth.",
+    tags: ["Facebook Ads", "Google Ads", "SEO", "Social Media"],
+  },
+
+    {
+    icon: FiCode,
+    title: "Competitive Programming",
+    organization: "Problem Solving & Programming",
+    year: "Ongoing",
+    description:
+      "Continuously improving algorithmic thinking and problem-solving skills through programming practice and coding challenges.",
+    tags: ["C", "C++", "JavaScript", "Problem Solving"],
+  },
 ];
 
 const areas = [
@@ -48,7 +66,7 @@ const areas = [
   "Web Development",
   "AI & Machine Learning",
   "Academic Research",
-  "Continuous Learning",
+  "Digital Marketing",
 ];
 
 const cardVariants = {
@@ -78,16 +96,13 @@ const containerVariants = {
 export default function AchievementsPage() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#EFFFF7] px-5 py-24 text-gray-900 transition-colors duration-300 dark:bg-[#020B0A] dark:text-white sm:px-8 lg:px-12">
-
       {/* Background */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute -right-40 -top-40 h-96 w-96 rounded-full bg-emerald-400/10 blur-3xl dark:bg-emerald-400/5" />
-
         <div className="absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-emerald-500/10 blur-3xl dark:bg-emerald-500/5" />
       </div>
 
       <div className="relative mx-auto max-w-6xl">
-
         {/* ================= HEADER ================= */}
 
         <motion.div
@@ -113,7 +128,6 @@ export default function AchievementsPage() {
             engineering.
           </p>
         </motion.div>
-
 
         {/* ================= ACHIEVEMENT CARDS ================= */}
 
@@ -141,7 +155,7 @@ export default function AchievementsPage() {
                   </div>
 
                   <span className="font-mono text-xs text-gray-400 dark:text-gray-600">
-                    0{index + 1}
+                    {String(index + 1).padStart(2, "0")}
                   </span>
                 </div>
 
@@ -181,7 +195,6 @@ export default function AchievementsPage() {
           })}
         </motion.div>
 
-
         {/* ================= AREAS OF GROWTH ================= */}
 
         <motion.section
@@ -192,7 +205,6 @@ export default function AchievementsPage() {
           className="mt-20 border-t border-emerald-200/70 pt-14 dark:border-emerald-900/50"
         >
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
-
             <div>
               <p className="font-mono text-sm uppercase tracking-[0.2em] text-emerald-600 dark:text-emerald-400">
                 Growth
@@ -204,10 +216,10 @@ export default function AchievementsPage() {
 
               <p className="mt-4 max-w-lg text-sm leading-7 text-gray-600 dark:text-gray-400">
                 My current focus is on developing practical engineering skills
-                while strengthening my academic and research background.
+                while strengthening my academic, research, and digital
+                expertise.
               </p>
             </div>
-
 
             <div className="grid gap-3 sm:grid-cols-2">
               {areas.map((area, index) => (
@@ -220,21 +232,19 @@ export default function AchievementsPage() {
                     duration: 0.4,
                     delay: index * 0.07,
                   }}
-                  className="flex items-center gap-3 rounded-xl border border-emerald-200/60 bg-white/60 p-4 dark:border-emerald-900/50 dark:bg-[#071512]/60"
+                  whileHover={{ x: 4 }}
+                  className="flex items-center gap-3 rounded-xl border border-emerald-200/60 bg-white/60 p-4 transition-colors duration-300 hover:border-emerald-400/60 dark:border-emerald-900/50 dark:bg-[#071512]/60 dark:hover:border-emerald-500/40"
                 >
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-100 text-sm font-semibold text-emerald-600 dark:bg-emerald-400/10 dark:text-emerald-400">
                     {String(index + 1).padStart(2, "0")}
                   </span>
 
-                  <span className="text-sm font-medium">
-                    {area}
-                  </span>
+                  <span className="text-sm font-medium">{area}</span>
                 </motion.div>
               ))}
             </div>
           </div>
         </motion.section>
-
 
         {/* ================= CERTIFICATION / AWARDS ================= */}
 
@@ -246,7 +256,6 @@ export default function AchievementsPage() {
           className="mt-20"
         >
           <div className="rounded-2xl border border-dashed border-emerald-300 bg-emerald-50/50 p-8 text-center dark:border-emerald-800 dark:bg-emerald-400/5 sm:p-10">
-
             <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-100 text-emerald-600 dark:bg-emerald-400/10 dark:text-emerald-400">
               <FiAward size={22} />
             </div>
@@ -259,51 +268,8 @@ export default function AchievementsPage() {
               Certifications, competition results, scholarships, and other
               verified achievements can be added here as they are earned.
             </p>
-
           </div>
         </motion.section>
-
-
-        {/* ================= CTA ================= */}
-
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-20 rounded-2xl border border-emerald-300/50 bg-emerald-50 p-8 text-center dark:border-emerald-500/20 dark:bg-emerald-400/5 sm:p-12"
-        >
-          <h2 className="text-2xl font-bold sm:text-3xl">
-            Want to see what I&apos;ve built?
-          </h2>
-
-          <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-gray-600 dark:text-gray-400">
-            Explore my projects and see how I apply my technical skills to
-            real-world applications.
-          </p>
-
-          <div className="mt-7 flex flex-wrap justify-center gap-3">
-
-            <Link
-              href="/projects"
-              className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-400 dark:hover:text-gray-950"
-            >
-              View Projects
-              <FiArrowUpRight />
-            </Link>
-
-            <Link
-              href="/github"
-              className="inline-flex items-center gap-2 rounded-xl border border-emerald-300 bg-white px-5 py-3 text-sm font-semibold text-gray-800 transition hover:border-emerald-500 dark:border-emerald-800 dark:bg-transparent dark:text-gray-200"
-            >
-              <FiGithub />
-              GitHub
-              <FiExternalLink />
-            </Link>
-
-          </div>
-        </motion.section>
-
       </div>
     </main>
   );

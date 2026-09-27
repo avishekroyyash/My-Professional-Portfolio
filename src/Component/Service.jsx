@@ -187,7 +187,7 @@ export default function ServicesPage() {
                   duration: 0.8,
                   ease: "easeOut",
                 }}
-                className="absolute -bottom-2 left-0 h-[3px] rounded-full bg-emerald-500/60"
+             
               />
             </span>
           </h1>

@@ -663,73 +663,7 @@ export default function SkillsPage() {
         </div>
       </section>
 
-      {/* =====================================================
-          FINAL CTA / STATEMENT
-      ====================================================== */}
-      <section className="relative px-5 py-20 sm:px-8 lg:px-10 lg:py-24">
 
-        <motion.div
-          initial={{
-            opacity: 0,
-            scale: 0.97,
-          }}
-          whileInView={{
-            opacity: 1,
-            scale: 1,
-          }}
-          viewport={{
-            once: true,
-            amount: 0.2,
-          }}
-          transition={{
-            duration: 0.7,
-          }}
-          className="relative mx-auto max-w-5xl overflow-hidden rounded-3xl border border-emerald-200/70 bg-white/70 p-8 text-center shadow-xl shadow-emerald-900/5 backdrop-blur-xl dark:border-emerald-900/50 dark:bg-[#071512]/70 sm:p-12"
-        >
-
-          {/* Glow */}
-          <div className="pointer-events-none absolute left-1/2 top-0 h-40 w-80 -translate-x-1/2 rounded-full bg-emerald-400/10 blur-3xl" />
-
-          <div className="relative">
-
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
-              <FiGitBranch size={25} />
-            </div>
-
-            <h2 className="mt-6 text-2xl font-bold tracking-tight sm:text-3xl">
-              Always learning. Always building.
-            </h2>
-
-            <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-gray-500 dark:text-gray-400">
-              Technology keeps evolving, and so does my toolkit. I continuously
-              learn new concepts and explore better ways to build useful
-              digital experiences.
-            </p>
-
-            <motion.div
-              whileHover={{
-                scale: 1.04,
-              }}
-              whileTap={{
-                scale: 0.97,
-              }}
-              className="mt-7 inline-flex"
-            >
-              <a
-                href="/contact"
-                className="group inline-flex items-center gap-2 rounded-full bg-emerald-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-600/20 transition-all duration-300 hover:bg-emerald-500 hover:shadow-emerald-500/30"
-              >
-                Let&apos;s build something
-
-                <FiArrowUpRight
-                  size={17}
-                  className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                />
-              </a>
-            </motion.div>
-          </div>
-        </motion.div>
-      </section>
     </main>
   );
 }
