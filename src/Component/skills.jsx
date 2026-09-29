@@ -243,7 +243,7 @@ export default function SkillsPage() {
               <div className="mt-10 flex flex-wrap items-center gap-7">
 
                 <div>
-                  <p className="text-2xl font-bold">06</p>
+                  <p className="text-2xl font-bold">10+</p>
                   <p className="mt-1 text-[11px] uppercase tracking-wider text-gray-500">
                     Skill Areas
                   </p>

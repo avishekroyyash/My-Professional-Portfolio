@@ -9,16 +9,25 @@ import {
   FiMapPin,
 } from "react-icons/fi";
 
+import {
+  FaFacebook,
+  FaPinterest,
+  FaTwitter,
+} from "react-icons/fa";
+
+
 const navigation = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Skills", href: "/skills" },
-  { name: "Projects", href: "/projects" },
-  { name: "Experience", href: "/experience" },
-  { name: "Education", href: "/education" },
-  { name: "Services", href: "/services" },
-  { name: "Contact", href: "/contact" },
+  { name: "Home", href: "#home" },
+  { name: "About", href: "#about" },
+  { name: "Skills", href: "#skills" },
+  { name: "Projects", href: "#projects" },
+  { name: "Experience", href: "#experience" },
+  { name: "Education", href: "#education" },
+  { name: "Services", href: "#services" },
+  { name: "Contact", href: "#contact" },
 ];
+
+
 
 const socials = [
   {
@@ -31,6 +40,15 @@ const socials = [
     href: "https://www.linkedin.com/in/avishek-roy-yash/",
     icon: FiLinkedin,
   },
+  { name: "Facebook",
+     href: "https://www.facebook.com/avishekroyyash",
+      icon: FaFacebook, },
+ { name: "Pinterest",
+   href: "https://www.pinterest.com/avishekroyyash/",
+    icon: FaPinterest, }, 
+  { name: "Twitter",
+     href: "https://twitter.com/avishekroyyash", 
+    icon: FaTwitter,},
 ];
 
 export default function Footer() {
@@ -75,11 +93,11 @@ export default function Footer() {
             {/* Email */}
 
             <a
-              href="mailto:your-email@gmail.com"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=avishekroyyash@gmail.com"
               className="mt-2 flex items-center gap-2 text-sm text-gray-500 transition-colors hover:text-emerald-600 dark:text-gray-500 dark:hover:text-emerald-400"
             >
               <FiMail className="text-emerald-600 dark:text-emerald-400" />
-              your-email@gmail.com
+              avishekroyyash@gmail.com
             </a>
 
           </div>
@@ -122,7 +140,7 @@ export default function Footer() {
             </p>
 
             <Link
-              href="/contact"
+              href="#contact"
               className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-emerald-600 transition-colors hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300"
             >
               Get in touch
