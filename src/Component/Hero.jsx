@@ -131,7 +131,7 @@ useEffect(() => {
             {/* Name */}
             <motion.h1 variants={itemVariants} className="text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl">
               <span className="text-gray-900 dark:text-white">Avishek </span>
-              <span className="bg-linear-to-r from-emerald-600 via-emerald-500 to-green-600 bg-clip-text text-transparent dark:from-emerald-300 dark:via-emerald-400 dark:to-green-500">Roy Yash</span>
+              <span className="bg-linear-to-r from-emerald-600 via-emerald-500 to-green-600 bg-clip-text text-transparent dark:from-emerald-300 dark:via-emerald-400 dark:to-green-500">Ray Yash</span>
             </motion.h1>
 
             {/* Job Title */}
@@ -201,7 +201,7 @@ useEffect(() => {
 
             {/* Profile Image */}
            <motion.div initial={{ opacity: 0, y: 25, scale: 0.97 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.8, delay: 0.35, ease: "easeOut" }} className="relative z-10 mt-8 w-72.5 sm:w-87.5 md:w-96  lg:w-106">
-  <Image src={pic} alt="Avishek Roy Yash" width={800} height={700} priority className="relative z-10 h-auto scale-[1.37] object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.20)] dark:drop-shadow-[0_20px_50px_rgba(0,0,0,0.60)]" />
+  <Image src={pic} alt="Avishek Ray Yash" width={800} height={700} priority className="relative z-10 h-auto scale-[1.37] object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.20)] dark:drop-shadow-[0_20px_50px_rgba(0,0,0,0.60)]" />
 </motion.div>
 
             {/* Build / Learn / Grow */}

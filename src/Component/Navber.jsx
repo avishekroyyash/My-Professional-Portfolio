@@ -113,7 +113,7 @@ useEffect(() => {
 
           <div className="hidden sm:block">
             <p className="text-sm font-semibold tracking-tight text-gray-900 dark:text-white">
-              Avishek Roy Yash
+              Avishek Ray Yash
             </p>
 
             <p className="text-[10px] font-medium text-gray-500 dark:text-gray-400">

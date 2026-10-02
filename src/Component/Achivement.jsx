@@ -248,28 +248,8 @@ export default function AchievementsPage() {
 
         {/* ================= CERTIFICATION / AWARDS ================= */}
 
-        <motion.section
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-20"
-        >
-          <div className="rounded-2xl border border-dashed border-emerald-300 bg-emerald-50/50 p-8 text-center dark:border-emerald-800 dark:bg-emerald-400/5 sm:p-10">
-            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-100 text-emerald-600 dark:bg-emerald-400/10 dark:text-emerald-400">
-              <FiAward size={22} />
-            </div>
+    
 
-            <h2 className="mt-5 text-xl font-bold sm:text-2xl">
-              Certifications & Awards
-            </h2>
-
-            <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-gray-600 dark:text-gray-400">
-              Certifications, competition results, scholarships, and other
-              verified achievements can be added here as they are earned.
-            </p>
-          </div>
-        </motion.section>
       </div>
     </main>
   );

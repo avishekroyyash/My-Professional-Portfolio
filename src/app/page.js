@@ -10,6 +10,7 @@ import ServicesPage from "@/Component/Service";
 import EducationPage from "@/Component/Education";
 import AchievementsPage from "@/Component/Achivement";
 import ContactPage from "@/Component/Contact";
+import CertificationsPage from "@/Component/Certification";
 
 export default function Home() {
   return (
@@ -48,7 +49,10 @@ export default function Home() {
         <section id="achievements">
           <AchievementsPage />
         </section>
-
+        <section id="certificates">
+             <CertificationsPage></CertificationsPage>
+        </section>
+     
         <section id="contact">
           <ContactPage />
         </section>

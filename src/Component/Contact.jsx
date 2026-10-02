@@ -265,7 +265,7 @@ export default function ContactPage() {
   <input
     type="hidden"
     name="_next"
-    value="https://your-domain.com/contact"
+    value="https://avishekrayyash.vercel.app"
   />
 
   {/* Name */}

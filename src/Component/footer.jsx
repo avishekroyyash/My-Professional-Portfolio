@@ -194,7 +194,7 @@ export default function Footer() {
             </Link>
 
             <Link
-              href="/contact"
+              href="#contact"
               className="text-xs text-gray-500 transition-colors hover:text-emerald-600 dark:hover:text-emerald-400"
             >
               Contact
